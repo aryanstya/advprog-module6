@@ -4,6 +4,6 @@ Kode ini membuat sebuah *TCP listener* pada alamat 127.0.0.1:7878, dan setiap ko
 
 
 # Refleksi Commit 2
-![Commit 2 screen capture](assets/images/commit2.png)
+![Commit 2 screen capture](asset/images/commit2.png)
 
 Setelah dimodifikasi, fungsi `handle_connection` kini mengembalikan respons berupa HTML. Konten HTML tersebut dibaca dari file *hello.html* menggunakan `fs::read_to_string` dan disimpan dalam variabel `contents` sebagai sebuah *String*. Selain itu, *response body* juga dilengkapi dengan status line dan header `Content-Length`, yang penting untuk menunjukkan apakah koneksi berhasil atau gagal, serta memastikan panjang respons yang dikirim. Terakhir, `format!` digunakan untuk menggabungkan status line, `Content-Length`, dan isi HTML menjadi satu string utuh, yang kemudian dikirim melalui koneksi TCP menggunakan `stream.write_all()`.

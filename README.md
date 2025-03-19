@@ -8,6 +8,7 @@ Kode ini membuat sebuah *TCP listener* pada alamat 127.0.0.1:7878, dan setiap ko
 
 Setelah dimodifikasi, fungsi `handle_connection` kini mengembalikan respons berupa HTML. Konten HTML tersebut dibaca dari file *hello.html* menggunakan `fs::read_to_string` dan disimpan dalam variabel `contents` sebagai sebuah *String*. Selain itu, *response body* juga dilengkapi dengan status line dan header `Content-Length`, yang penting untuk menunjukkan apakah koneksi berhasil atau gagal, serta memastikan panjang respons yang dikirim. Terakhir, `format!` digunakan untuk menggabungkan status line, `Content-Length`, dan isi HTML menjadi satu string utuh, yang kemudian dikirim melalui koneksi TCP menggunakan `stream.write_all()`.
 
+# Refleksi Commit 3
 ![Commit 3 screen capture](asset/images/commit3.png)
 
 Fungsi handle_connection berfungsi untuk memeriksa permintaan dari klien. Bila permintaan tersebut mengarah ke jalur utama, maka server akan memberikan respons berupa konten dari hello.html. Jika tidak, maka server akan menampilkan halaman kesalahan dari 404.html.

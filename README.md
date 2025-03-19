@@ -1,0 +1,3 @@
+# Refleksi Commit 1
+
+Kode ini membuat sebuah *TCP listener* pada alamat 127.0.0.1:7878, dan setiap koneksi yang masuk akan diteruskan ke fungsi `handle_connection`. Di dalam `handle_connection`, objek `TcpStream` dibungkus dengan `BufReader`, yang digunakan untuk membaca baris demi baris hingga menemukan baris kosong yang menandakan akhir dari *header* permintaan. Baris-baris header tersebut kemudian dikumpulkan ke dalam sebuah *vector* dan ditampilkan di konsol, memperlihatkan detail permintaan HTTP yang biasa. Karena tidak ada respons yang dikirimkan kembali, peramban atau perangkat lunak lain yang membuka koneksi akan terus menunggu hingga koneksi mengalami *timeout*.
